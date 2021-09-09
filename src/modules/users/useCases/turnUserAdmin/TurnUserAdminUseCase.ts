@@ -9,7 +9,11 @@ class TurnUserAdminUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   execute({ user_id }: IRequest): User {
-   
+    const userEmail = this.usersRepository.findById(user_id);
+
+    const userAlreadyAdmin = this.usersRepository.turnAdmin(userEmail);
+
+    return userAlreadyAdmin;
   }
 }
 
