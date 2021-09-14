@@ -47,8 +47,44 @@
             }
           }
         }
-      },
+      }
       
+    },
+    "/users/{user_id}/admin":{
+      "patch":{
+        "tags":["Users"],
+        "summary":"Turn User in admin user",
+        "description":"Turn User in admin user",
+        "parameters":[
+          {
+            "in":"path",
+            "name":"user_id",
+            "required":true,
+            "schema":{
+              "type":"string"
+            },
+            "description":"The user UID"
+          }
+        ]
+      }
+    },
+    "/users/{user_id}":{
+      "get":{
+        "tags":["Users"],
+        "summary":"Show info of User",
+        "description":"Show all info of user",
+        "parameters":[
+          {
+            "in":"path",
+            "name":"user_id",
+            "required":true,
+            "schema":{
+              "type":"string"
+            },
+            "description":"The user UID"
+          }
+        ]
+      }
     }
   }
 }
