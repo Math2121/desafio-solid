@@ -47,43 +47,138 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create a new User",
+        "description": "Create a new User",
+        "requestBody": {
+          "required": true,
+          "description": "Create a new User",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "John Doe",
+                  "email": "johndoe@gmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "A new User Object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "admin": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-      
     },
-    "/users/{user_id}/admin":{
-      "patch":{
-        "tags":["Users"],
-        "summary":"Turn User in admin user",
-        "description":"Turn User in admin user",
-        "parameters":[
+    "/users/{user_id}/admin": {
+      "patch": {
+        "tags": ["Users"],
+        "summary": "Turn User in admin user",
+        "description": "Turn User in admin user",
+        "parameters": [
           {
-            "in":"path",
-            "name":"user_id",
-            "required":true,
-            "schema":{
-              "type":"string"
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string"
             },
-            "description":"The user UID"
+            "description": "The user UID"
           }
         ]
       }
     },
-    "/users/{user_id}":{
-      "get":{
-        "tags":["Users"],
-        "summary":"Show info of User",
-        "description":"Show all info of user",
-        "parameters":[
+    "/users/{user_id}": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Show info of User",
+        "description": "Show all info of user",
+        "parameters": [
           {
-            "in":"path",
-            "name":"user_id",
-            "required":true,
-            "schema":{
-              "type":"string"
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "type": "string"
             },
-            "description":"The user UID"
+            "description": "The user UID"
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Return full Object User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "a232d32323-23ed-24dddf"
+                    },
+                    "admin": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "johndoe@gmail.com"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "John Doe"
+                    },
+
+                    "created_at": {
+                      "type": "string",
+                      "example": "2021-03-10T22:10:32.99wz"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "example": "2021-03-10T22:10:32.99wz"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
