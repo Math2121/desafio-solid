@@ -45,6 +45,22 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "User not admin exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "User not admin exists"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -97,6 +113,22 @@
                     },
                     "updated_at": {
                       "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "User already exists"
                     }
                   }
                 }
@@ -172,6 +204,22 @@
                     "updated_at": {
                       "type": "string",
                       "example": "2021-03-10T22:10:32.99wz"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "boolean",
+                      "example": "User not found"
                     }
                   }
                 }
